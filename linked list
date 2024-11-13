@@ -1,0 +1,23 @@
+public static Node insertPos(Node head, int pos, int data) {
+    if (pos < 1) {
+        System.out.println("Invalid position!");
+        return head;
+    }
+    Node newNode = new Node(data);
+
+    if (pos == 1) {
+        newNode.next = head;
+        return newNode;
+    }
+    Node current = head;
+    for (int i = 1; i < pos - 1; i++) {
+        if (current == null) {
+            System.out.println("Invalid position!");
+            return head;
+        }
+        current = current.next;
+    }
+    newNode.next = current.next;
+    current.next = newNode;
+    return head;
+}
